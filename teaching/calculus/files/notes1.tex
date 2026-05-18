@@ -1,0 +1,96 @@
+\documentclass[11pt,oneside,reqno]{amsart}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+
+
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+\usepackage{color}
+
+\def\rcomment#1{{\color{red}[{\sf #1}]}}
+\def\bcomment#1{{\color{blue}[{\sf #1}]}}
+\def\gcomment#1{{\color{green}[{\sf #1}]}}
+
+%% blackboard bold
+
+\newcommand\Z{{\mathbb Z}}
+\newcommand\Q{{\mathbb Q}}
+\newcommand\Qbar{{\overline{\mathbb Q}}}
+\newcommand\N{{\mathbb N}}
+\newcommand\R{{\mathbb R}}
+\newcommand\C{{\mathbb C}}
+
+\DeclareMathOperator{\sgn}{\text{sgn}}
+\DeclareMathOperator{\per}{\text{Per}}
+\DeclareMathOperator{\preper}{\text{Preper}}
+\DeclareMathOperator{\tr}{tr}
+
+
+%% bold face macros
+
+\newcommand\br{{\mathbf r}}
+\newcommand\bt{{\mathbf t}}
+\newcommand\bu{\mathbf{u}}
+\newcommand\bv{\mathbf{v}}
+\newcommand\bw{\mathbf{w}}
+\newcommand\bx{\mathbf{x}}
+\newcommand\by{\mathbf{y}}
+\newcommand\bX{\mathbf{X}}
+\newcommand\bY{\mathbf{Y}}
+\newcommand\bL{\mathbf{L}}
+
+%%%%%%%%%%%%%%%%% environments %%%%%%%%%%%%%%%%%%
+
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}{Problem} 
+\newtheorem{step}{Step}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title{Lecture Notes: Limits and Continuity}
+\author[sdf]{S. Peter Jeong}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+    A brief introductory exposition on limits, continuity, and related theorems.
+\end{abstract}
+
+\section{Examples of Limits} We begin with an intuitive definition of limits of real-valued functions. 
+\begin{definition}
+    For a real-valued function $f:D\to\R$ defined on some subset $D \subseteq \R$, we say that \textit{the limit of $f(x)$ as $x$ approaches $a$ is $L$} if the value of $f(x)$ gets arbitrarily close to $L$ as $x$ gets closer and closer to $a$, without necessarily reaching $a$. 
+\end{definition}
+That is, the existence of a limit depends only on the behavior of the function near the point $a$, regardless of whether $f(a)$ is defined. Since we can approach $a$ from both sides (either right or left) on the real number line, for the overall limit to exist, the \textit{right-hand limit} $\lim_{x\to a^+} f(x)$ and \textit{left-hand limit} $\lim_{x\to a^-} f(x)$ must both exist and equal the same value $L$. 
+
+Here we look at some ``nontrivial'' examples (or counterexamples) of limits of functions. 
+\begin{example}
+    Let $f(x) = \sin \frac{1}{x}$. If we ever try to estimate the limit $\lim_{x\to0} f(x)$ by either graphing or calculating $f(x)$ for very small values of $x$, we quickly run into an issue; the functions seems to ``fluctuate'' across many different values as we take $x = 0.01, 0.00001, 0.0000001,$ and so on. 
+    
+    In fact, the function indeed oscillates \textit{infinitely often} on any open interval containing the point $0$. In particular, if we let 
+    \[x_1 = \frac{1}{\frac{1}{2}\pi+2n\pi}, \qquad x_2 = \frac{1}{\frac{3}{2}\pi + 2m\pi},\]
+    then any open interval around $0$ contains the points $x_1$ and $x_2$ for sufficiently large $n$ and $m$, while $f(x_1) = 1$ and $f(x_2) = -1$, meaning that the function oscillates between these two values (which are indeed upper and lower bounds of $f$). 
+\end{example}
+
+\end{document}
