@@ -1,0 +1,185 @@
+\documentclass[11pt,oneside,reqno]{amsart}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+
+
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+\usepackage{color}
+
+\def\rcomment#1{{\color{red}[{\sf #1}]}}
+\def\bcomment#1{{\color{blue}[{\sf #1}]}}
+\def\gcomment#1{{\color{green}[{\sf #1}]}}
+
+%% blackboard bold
+
+\newcommand\Z{{\mathbb Z}}
+\newcommand\Q{{\mathbb Q}}
+\newcommand\Qbar{{\overline{\mathbb Q}}}
+\newcommand\N{{\mathbb N}}
+\newcommand\R{{\mathbb R}}
+\newcommand\C{{\mathbb C}}
+
+\DeclareMathOperator{\sgn}{\text{sgn}}
+\DeclareMathOperator{\per}{\text{Per}}
+\DeclareMathOperator{\preper}{\text{Preper}}
+\DeclareMathOperator{\tr}{tr}
+
+
+%% bold face macros
+
+\newcommand\br{{\mathbf r}}
+\newcommand\bt{{\mathbf t}}
+\newcommand\bu{\mathbf{u}}
+\newcommand\bv{\mathbf{v}}
+\newcommand\bw{\mathbf{w}}
+\newcommand\bx{\mathbf{x}}
+\newcommand\by{\mathbf{y}}
+\newcommand\bX{\mathbf{X}}
+\newcommand\bY{\mathbf{Y}}
+\newcommand\bL{\mathbf{L}}
+
+%%%%%%%%%%%%%%%%% environments %%%%%%%%%%%%%%%%%%
+
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{cor}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}{Problem} 
+\newtheorem{step}{Step}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title{Lecture Notes: Complex Arithmetic and Geometry}
+\author{S. Peter Jeong}
+
+\begin{document}
+\begin{abstract}
+    A brief introduction to complex numbers, their arithmetic, and geometric representation.
+\end{abstract}
+\maketitle
+
+\section{Complex Numbers} 
+\subsection{Complex Arithmetic}
+We begin with the definition of complex numbers and their arithmetic operations.
+\begin{definition}
+    A \textit{complex number} is an ordered pair of real numbers $(a,b)$, which we write as $a + bi$, where $i$ is the imaginary unit satisfying $i^2 = -1$. The set of all complex numbers is denoted by $\C$.
+\end{definition}
+Thus $\C$ extends the real numbers $\R$ using the imaginary unit $i$, allowing solutions to all polynomial equations. For example, the quadratic polynomial $x^2+2x+5$ has no real roots, 
+but it has two complex roots $-1 + 2i$ and $-1 - 2i$.
+
+For a complex number $z = a + bi$, the number $a$ is called the \textit{real part} of $z$, denoted $\operatorname{Re}(z)$, 
+and the number $b$ is called the \textit{imaginary part} of $z$, denoted $\operatorname{Im}(z)$. Addition and multiplication of complex numbers 
+do not deviate from the usual rules of algebra, as 
+\[(a + bi) + (c + di) = (a + c) + (b + d)i\] and 
+\[(a + bi)(c + di) = (ac - bd) + (ad + bc)i.\]
+The quotient of two complex numbers is a complex number as well. If we assume $(a+bi)/(c+di) = (x+yi)$ given that $c+di \neq 0$,
+we must have 
+\[a+bi = (x+yi)(c+di) = (cx - dy) + (dx + cy)i\]
+From this we obtain the system of equations
+\begin{align*}
+    a &= cx - dy \\
+    b &= dx + cy
+\end{align*}
+which indeed has the unique solution 
+\begin{align*}
+    x &= \frac{ac + bd}{c^2 + d^2} \\
+    y &= \frac{bc - ad}{c^2 + d^2}.
+\end{align*}
+Similarly, the square root of a complex number can be computed by solving 
+\[(x + yi)^2 = a + bi\]
+for some $x,y \in \R$. This leads to the system of equations
+\begin{align*}
+    x^2 - y^2 &= a \\
+    2xy &= b.
+\end{align*}
+
+From these we obtain 
+\[(x^2 + y^2)^2 = (x^2 - y^2)^2 + (2xy)^2 = a^2 + b^2\]
+and thus 
+\[x^2 + y^2 = \sqrt{a^2 + b^2}.\]
+Combined with $x^2 - y^2 = a$, we have
+\begin{align*}
+    x^2 &= \frac{\sqrt{a^2 + b^2} + a}{2} \\
+    y^2 &= \frac{\sqrt{a^2 + b^2} - a}{2}
+\end{align*}
+and both values are indeed nonnegative. Finally we have the general solution of the form
+\[\sqrt{a + bi} = \pm \left( \sqrt{\frac{\sqrt{a^2 + b^2} + a}{2}} + i\frac{b}{|b|}\sqrt{\frac{\sqrt{a^2 + b^2} - a}{2}} \right).\]
+given that $b \neq 0$. If $b = 0$, then the square root of $a$ is $\sqrt{a}$ if $a \geq 0$ and $i\sqrt{-a}$ if $a < 0$.
+
+
+\subsection{Conjugation} Notice from the previous section that the only condition imaginary unit $i$ must satisfy is $i^2 = -1$. Since $i^2 = (-i)^2$, 
+$-i$ must also satisfy any property that $i$ satisfies. The transformation $z = a + bi \mapsto \overline{z} = a - bi$ is called the \textit{complex conjugation}, and $\overline{z}$ is called the \textit{complex conjugate} of $z$.
+The complex conjugation is an involution, meaning that $\overline{\overline{z}} = z$ for all $z \in \C$. It also satisfies the following properties:
+\begin{gather*}
+    \overline{z + w} = \overline{z} + \overline{w} \\
+    \overline{zw} = \overline{z}\,\overline{w}.
+\end{gather*} 
+Consequently, if $ax = b$, then $\overline{a}\overline{x} = \overline{b}$, and thus $\overline{a/b} = \overline{a}/\overline{b}$ for $b \neq 0$. In general, 
+if $R(z_1, z_2, z_3, \dots)$ is some rational operation on complex numbers $z_1, z_2, z_3, \dots$, then $\overline{R(z_1, z_2, z_3, \dots)} = R(\overline{z_1}, \overline{z_2}, \overline{z_3}, \dots)$. 
+\begin{example}
+    Consider the equation $c_nx^n + c_{n-1}x^{n-1} + \cdots + c_1x + c_0 = 0$ where $c_0, c_1, \dots, c_n \in \C$. If $z$ is a solution to this equation, then $\overline{z}$ is a solution to the equation
+    \[\overline{c_n}x^n + \overline{c_{n-1}}x^{n-1} + \cdots + \overline{c_1}x + \overline{c_0} = 0.\] 
+    In particular, if the coefficients $c_0, c_1, \dots, c_n$ are all real numbers, then $\overline{c_k} = c_k$ for all $k$, and it follows that the conjugate $\overline{z}$ is also a solution to the original equation.
+    We thus have the familiar statement that the imaginary roots of a polynomial with real coeffcients always come in conjugate pairs. 
+\end{example}
+
+\subsection{Complex Numbers as Vectors} At this point, you may have noticed that the complex numbers are essentially pairs of real numbers that can be represented as points in the usual Cartesian plane as $(a, b)$, where $a$ is 
+the $x$-coordinate (real axis) and $b$ is the $y$-coordinate (imaginary axis). And these points on the plane can always be represented as \textit{vectors} from the origin $(0,0)$ to the point itself using its 
+\textit{magnitude} and the \textit{angle} it makes with the positive $x$-axis (measured counterclockedwise). This magnitude-angle representation can be explicitly found using basic trigonometry as follows. 
+
+For a complex number $z = a + bi$, the magnitude of $z$ is given by the distance from the origin to the point $(a, b)$, which is
+\[|z| = \sqrt{a^2 + b^2}.\]
+This quantity is also called the \textit{absolute value} or \textit{modulus} of $z$. The angle $\theta = \tan^{-1}(b/a)$ that the vector from the origin to $(a, b)$ makes with the positive $x$-axis is called the \textit{argument} of $z$, denoted $\arg(z)$.
+It follows that we can write $z$ in the form
+\[z = (r,\theta)\]
+where $r = |z|$ and $\theta = \arg(z) = \tan^{-1}(b/a)$. This is known as the \textit{polar form} of $z$. Conversely, given a polar coordinate $(r, \theta)$ of a complex number, 
+we can write 
+\begin{align*}
+    a &= r\cos\theta \\
+    b &= r\sin\theta.
+\end{align*}
+Hence we can write 
+\[z = a+bi = r(\cos\theta + i\sin\theta).\]
+This is known as the \textit{trigonometric form} of $z$. 
+\begin{remark}
+    Another way to compute the modulus is to use the complex conjugate. Notice that $z\overline{z} = (a + bi)(a - bi) = a^2 + b^2$, which is always nonnegative, and thus $|z|^2 = z\overline{z}$.
+\end{remark}
+
+\begin{remark}
+    Division of complex numbers is massively simplified using the complex conjugate and modulus. For $z = a + bi$ and $w = c + di$ with $w \neq 0$, we have
+\begin{align*}
+    \frac{z}{w} &= \frac{a + bi}{c + di} \\
+    &= \frac{(a + bi)(c - di)}{(c + di)(c - di)} \\
+    &= \frac{(ac + bd) +    (ad - bc)i}{c^2 + d^2} \\
+    &= \frac{ac + bd}{c^2 + d^2} + \frac{ad - bc}{c^2 + d^2}i \\
+    &= \frac{z\overline{w}}{|w|^2}.
+\end{align*}
+\end{remark}
+
+\begin{remark}
+    Earlier we wrote $\arg(z) = \tan^{-1}(b/a)$, but since $\tan^{-1}$ takes values in $(-\pi/2, \pi/2)$, the final value of $\arg(z)$ must be adjusted according to the quadrant in which $z$ lies. For example, if $a < 0$ and $b \geq 0$, then $\arg(z) = \tan^{-1}(b/a) + \pi$. If $a < 0$ and $b < 0$, then $\arg(z) = \tan^{-1}(b/a) - \pi$. If $a > 0$ and $b < 0$, then $\arg(z) = \tan^{-1}(b/a)$. If $a > 0$ and $b \geq 0$, then $\arg(z) = \tan^{-1}(b/a)$ as well. Finally, if $a = 0$ and $b > 0$, then $\arg(z) = \pi/2$, and if $a = 0$ and $b < 0$, then $\arg(z) = -\pi/2$. 
+\end{remark}
+
+\subsection{Inequalities and Identities}
+
+\end{document}
