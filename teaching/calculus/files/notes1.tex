@@ -160,11 +160,12 @@ Essentially, we are trapping the tricky function $g$ between two functions $f$ a
 the trapped function $g$ is forced to approach the same value as well.
 
 \begin{example}
-    Consider the limit $\lim_{x\to0} x^2 \sin\frac{1}{x}$. We can apply the squeeze theorem by noting that $-1 \leq \sin\frac{1}{x} \leq 1$ for all $x$, so we have
+    Consider the limit $\lim_{x\to0} x^2 \sin\frac{1}{x}$. Notice that we cannot algebraically compute this limit since \[\lim_{x\to0}\sin\frac{1}{x}\] 
+    does not exist (example 1.2). We can apply the squeeze theorem by noting that $-1 \leq \sin\frac{1}{x} \leq 1$ for all $x$, so we have
 \begin{align*}
     -x^2 \leq x^2 \sin\frac{1}{x} \leq x^2.
 \end{align*}
-Since $\lim_{x\to0} -x^2 = \lim_{x\to0} x^2 = 0$, we conclude that $\lim_{x\to0} x^2 \sin\frac{1}{x} = 0$ as well.  
+Since $\lim_{x\to0} -x^2 = \lim_{x\to0} x^2 = 0$, we conclude that $\lim_{x\to0} x^2 \sin\frac{1}{x} = 0$ as well even though the limit of $\sin\frac{1}{x}$ does not exist.  
 \end{example}
 
 

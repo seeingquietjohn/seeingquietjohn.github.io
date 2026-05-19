@@ -251,4 +251,18 @@ will be reoccuring in various forms throughout mathematics, such as the exponent
     b^{x+y} = b^xb^y \\
     \log(xy) = \log x + \log y.
 \end{gather*}
+
+Another important consequence of this geometric identity is as follows. 
+\begin{theorem}[De Moivre's Theorem]
+    For any angle $\theta$ and any integer $n$, we have
+    \[(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta).\]
+\end{theorem}
+\begin{proof}
+    While this result is quite visual from the geometric perspective, we can prove this by induction on $n$. The base case $n = 0$ is trivial. For the inductive step, we have
+    \begin{align*}
+        (\cos\theta + i\sin\theta)^{n+1} &= (\cos\theta + i\sin\theta)^n(\cos\theta + i\sin\theta) \\
+        &= (\cos(n\theta) + i\sin(n\theta))(\cos\theta + i\sin\theta) \\
+        &= \cos((n+1)\theta) + i\sin((n+1)\theta).
+    \end{align*}
+\end{proof}
 \end{document}
