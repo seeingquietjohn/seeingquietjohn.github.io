@@ -82,7 +82,9 @@
 \begin{definition}
     For a real-valued function $f:D\to\R$ defined on some subset $D \subseteq \R$, we say that \textit{the limit of $f(x)$ as $x$ approaches $a$ is $L$} if the value of $f(x)$ gets arbitrarily close to $L$ as $x$ gets closer and closer to $a$, without necessarily reaching $a$. 
 \end{definition}
-That is, the existence of a limit depends only on the behavior of the function near the point $a$, regardless of whether $f(a)$ is defined. Since we can approach $a$ from both sides (either right or left) on the real number line, for the overall limit to exist, the \textit{right-hand limit} $\lim_{x\to a^+} f(x)$ and \textit{left-hand limit} $\lim_{x\to a^-} f(x)$ must both exist and equal the same value $L$. 
+That is, the existence of a limit depends only on the behavior of the function near the point $a$, regardless of whether $f(a)$ is defined. In particular, the limit $\lim_{x\to a} f(x)$ exists if and only if any sequence of numbers $\{x_n\}$ approaching $a$ produces a sequence of 
+numbers $\{f(x_n)\}$ approaching the same value $L$. Since we can approach $a$ from both sides (either right or left) on the real number line, for the overall limit to exist, 
+the \textit{right-hand limit} $\lim_{x\to a^+} f(x)$ and \textit{left-hand limit} $\lim_{x\to a^-} f(x)$ must both exist and equal the same value $L$. 
 
 Here we look at some ``nontrivial'' examples (or counterexamples) of limits of functions. 
 \begin{example}
@@ -92,5 +94,63 @@ Here we look at some ``nontrivial'' examples (or counterexamples) of limits of f
     \[x_1 = \frac{1}{\frac{1}{2}\pi+2n\pi}, \qquad x_2 = \frac{1}{\frac{3}{2}\pi + 2m\pi},\]
     then any open interval around $0$ contains the points $x_1$ and $x_2$ for sufficiently large $n$ and $m$, while $f(x_1) = 1$ and $f(x_2) = -1$, meaning that the function oscillates between these two values (which are indeed upper and lower bounds of $f$). 
 \end{example}
+
+\begin{example}
+    Let $f(x) = \begin{cases}
+        1 & \text{if } x \in \Q,\\
+        0 & \text{if } x \in \R\setminus\Q.
+    \end{cases}$ 
+    
+    Since there is always an irrational number arbitrarily close to any real number, the function oscillates between $0$ and $1$ infinitely often on any given interval on $\R$ and the limit $\lim_{x\to a} f(x)$ does not exist for any $a \in \R$.
+    This function is also known as the \textit{Dirichlet function}. 
+\end{example}
+
+\begin{example}
+    Let $f(x) = \begin{cases}
+        \frac{1}{q} & \text{if } x =\frac{p}{q} \text{ in lowest terms},\\
+        0 & \text{if } x \in \R\setminus\Q.
+    \end{cases}$
+    
+    Here $f$ is commonly known as the \textit{Thomae function} or the \textit{ popcorn function}. Take some $a \in (0,1)$. Then for any sequence of real numbers $\{x_n\}$ approaching $a$, we can split the sequence in two parts: (1) a sequence of irrational numbers $\{z'_n\}$ approaching $a$, and (2) a sequence of rational numbers $\{z_n\}$ approaching $a$.
+    The first sequence $\{z'_n\}$ of irrational numbers produces a sequence of function values $\{f(z'_n)\}$ that approaches $0$.
+    
+    The second sequence $\{z_n\}$ requires a little more thinking. If we write $z_n = \frac{p_n}{q_n}$ in lowest terms, then the function values $f(z'_n)$ form a sequence of form $\{\frac{1}{q_n}\}$. 
+    Now the question becomes: can we find a sequence of rational numbers $\{z_n\}$ approaching $a$ such that the denominators $q_n$ are bounded above by some constant $M$? If not, then the function values $f(z_n) = \frac{1}{q_n}$ must approach $0$.
+    The answer is no; if we take $M$ to be any positive integer, then there are only finitely many rational numbers in $(0,1)$ with denominators at most $M$, so we cannot find a sequence of rational numbers approaching $a$ with bounded denominators.
+    Thus the function values $f(z_n)$ must approach $0$ as well, and we conclude that $\lim_{x\to a} f(x) = 0$ for any $a \in (0,1)$.
+\end{example}
+
+\begin{example}
+    Now let $f(x) = \frac{\sin\theta}{\theta}$ and consider the limit of $f(\theta)$ as $\theta$ approaches $0$. Geometrically, $\sin\theta$ is the length of the vertical segment of the unit vector at angle 
+    $\theta$ from the positive $x$-axis. We see that the triangle formed by the origin, the point on the unit circle at angle $\theta$, and the unit vector $(1,0)$ has area $\frac{1}{2}\sin\theta$, while
+    the sector of the unit circle at angle $\theta$ has area $\frac{1}{2}\theta$. Since the triangle is contained in the sector, we have 
+    \begin{align*}
+        \frac{\sin\theta}{2} \leq \frac{\theta}{2}, \quad \text{for } 0 < \theta < \frac{\pi}{2}.
+    \end{align*}
+    On the other hand, the triangle formed by the origin, the unit vector $(1,0)$, and the point $(1, \tan\theta)$ has area $\frac{1}{2}$. Since this larger right triangle contains the sector, we have the inequality
+    \begin{align*}
+        \frac{\theta}{2} \leq \frac{\tan\theta}{2}.
+    \end{align*}
+    Combining the two inequalities, we have
+    \begin{align*}
+        \frac{\sin\theta}{2} \leq \frac{\theta}{2} \leq \frac{\tan\theta}{2}.
+    \end{align*}
+    Multiplying through by $\frac{2}{\sin\theta}$, we have
+    \begin{align*}
+            1 \leq \frac{\theta}{\sin\theta} \leq \frac{1}{\cos\theta}.
+    \end{align*}
+    for $\theta \in (0, \pi/2)$. Thus $\lim_{x\to 0^+} \frac{\sin\theta}{\theta} = 1$. 
+
+    To show that $\lim_{x\to0^-}\frac{\sin\theta}{\theta} = 1$, notice that $\sin\theta$ is an odd function. Thus after changing the sign of $\theta$ we obtain
+    \begin{align*}
+        \lim_{x\to0^-}\frac{\sin\theta}{\theta} &= \lim_{x\to0^+}\frac{\sin(-\theta)}{-\theta}
+        \\&= \lim_{x\to0^+}\frac{-\sin\theta}{-\theta} \\&= \lim_{x\to0^+}\frac{\sin\theta}{\theta} \\&= 1.
+    \end{align*}
+    Thus we have $\lim_{x\to0} \frac{\sin\theta}{\theta} = 1$.
+    
+\end{example}
+
+
+
 
 \end{document}
