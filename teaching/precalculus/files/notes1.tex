@@ -180,6 +180,75 @@ This is known as the \textit{trigonometric form} of $z$.
     Earlier we wrote $\arg(z) = \tan^{-1}(b/a)$, but since $\tan^{-1}\theta$ takes values in $(-\pi/2, \pi/2)$, the final value of $\arg(z)$ must be adjusted according to the quadrant in which $z$ lies. For example, if $a < 0$ and $b \geq 0$, then $\arg(z) = \tan^{-1}(b/a) + \pi$. If $a < 0$ and $b < 0$, then $\arg(z) = \tan^{-1}(b/a) - \pi$. If $a > 0$ and $b < 0$, then $\arg(z) = \tan^{-1}(b/a)$. If $a > 0$ and $b \geq 0$, then $\arg(z) = \tan^{-1}(b/a)$ as well. Finally, if $a = 0$ and $b > 0$, then $\arg(z) = \pi/2$, and if $a = 0$ and $b < 0$, then $\arg(z) = -\pi/2$. 
 \end{remark}
 
-\subsection{Inequalities and Identities}
+\section{Inequalities and Identities} Now that we are familiar with both the arithmetic and geometric representation of complex numbers, we can derive some useful inequalities and identities.
+\begin{lemma}\label{lemma:absineq}
+    For any complex number $z$, we have $|\operatorname{Re}(z)| \leq |z|$ and $|\operatorname{Im}(z)| \leq |z|$.
+\end{lemma}
+\begin{proof}
+    Let $z = a + bi$. Then 
+    \[a \leq \sqrt{a^2 + b^2} = |z|.\]
+    Similarly,
+    \[b \leq \sqrt{a^2 + b^2} = |z|.\]
+    Therefore,
+    \[|\operatorname{Re}(z)| = |a| \leq |z| \quad \text{and} \quad |\operatorname{Im}(z)| = |b| \leq |z|.\]
+\end{proof}
 
+\begin{cor}[Cauchy-Schwarz Inequality for Complex Numbers]\label{cor:cauchy}
+    For any two complex numbers $z$ and $w$, we have
+    \[|\operatorname{Re}(z\overline{w})| \leq |z||w|\]
+\end{cor}
+\begin{proof}
+    By Lemma \ref{lemma:absineq}, we have
+    \[|\operatorname{Re}(z\overline{w})| \leq |z\overline{w}| = |z||\overline{w}| = |z||w|.\]
+\end{proof}
+
+Notice that we can rewrite Corollary \ref{cor:cauchy} as 
+\[(x_1y_1 + x_2y_2)^2 \leq (x_1^2 + x_2^2)(y_1^2 + y_2^2).\]
+for any real numbers $x_1, x_2, y_1, y_2$. In fact, this inequality extends to higher dimensions. If $x = (x_1, x_2, \dots, x_n)$ and $y = (y_1, y_2, \dots, y_n)$ are two $n$-dimensional vectors, then we have
+\[(x_1y_1 + x_2y_2 + \cdots + x_ny_n)^2 \leq (x_1^2 + x_2^2 + \cdots + x_n^2)(y_1^2 + y_2^2 + \cdots + y_n^2).\]
+This is the well-known Cauchy-Schwarz inequality for vectors in $\R^n$.
+
+\begin{theorem}[Triangle Inequality]
+    For any two complex numbers $z$ and $w$, we have
+    \[|z + w| \leq |z| + |w|.\]
+\end{theorem}
+\begin{proof}
+    We have
+    \begin{align*}
+        |z + w|^2 &= (z + w)(\overline{z} + \overline{w}) \\
+        &= z\overline{z} + z\overline{w} + w\overline{z} + w\overline{w} \\
+        &= |z|^2 + 2\operatorname{Re}(z\overline{w}) + |w|^2 \\
+        &\leq |z|^2 + 2|z||w| + |w|^2 \\
+        &= (|z| + |w|)^2.
+    \end{align*}
+    Taking the square root of both sides, we have $|z + w| \leq |z| + |w|$ as desired.
+\end{proof}
+The triangle inequality essentially states that on the complex plane, the shortest distance between two points is the straight line connecting them, and any other path connecting the two points must be at least as long as the straight line.
+You can indeed verify this by simply drawing a few vectors. The triangle inequality also implies the following useful inequalities:
+\begin{gather*}
+    ||z| - |w|| \leq |z - w| \\
+    |z| - |w| \leq |z + w| \leq |z| + |w|.
+\end{gather*}
+
+\begin{theorem}[Angle Addition of the Sine and Cosine]\label{thm:angleadd}
+    For any two angles $\alpha$ and $\beta$, we have
+    \begin{gather*}
+        \sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta \\
+        \cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta.
+    \end{gather*}
+\end{theorem}
+\begin{proof}
+    Left as an exercise.  
+\end{proof}
+
+An immediate result from the angle addition theorem above is that for two complex numbers $z_1 = r_1(\cos\theta_1 + i\sin\theta_1)$ and $z_2 = r_2(\cos\theta_2 + i\sin\theta_2)$, we have
+\[z_1z_2 = r_1r_2(\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)),\]
+which implies 
+\[\arg(z_1z_2) = \arg(z_1) + \arg(z_2).\]
+Essentially, the product of two complex numbers is equivalent to some geometric transformation obtained by rotation and dilation. Futhermore, this kind of identity 
+will be reoccuring in various forms throughout mathematics, such as the exponential and logarithmic rules 
+\begin{gather*}
+    b^{x+y} = b^xb^y \\
+    \log(xy) = \log x + \log y.
+\end{gather*}
 \end{document}

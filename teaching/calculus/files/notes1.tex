@@ -78,12 +78,14 @@
     A brief introductory exposition on limits, continuity, and related theorems.
 \end{abstract}
 
-\section{Examples of Limits} We begin with an intuitive definition of limits of real-valued functions. 
+\section{Limit of a Function}
+
+\subsection{Examples of Limits} We begin with an intuitive definition of limits of real-valued functions. 
 \begin{definition}
     For a real-valued function $f:D\to\R$ defined on some subset $D \subseteq \R$, we say that \textit{the limit of $f(x)$ as $x$ approaches $a$ is $L$} if the value of $f(x)$ gets arbitrarily close to $L$ as $x$ gets closer and closer to $a$, without necessarily reaching $a$. 
 \end{definition}
-That is, the existence of a limit depends only on the behavior of the function near the point $a$, regardless of whether $f(a)$ is defined. In particular, the limit $\lim_{x\to a} f(x)$ exists if and only if any sequence of numbers $\{x_n\}$ approaching $a$ produces a sequence of 
-numbers $\{f(x_n)\}$ approaching the same value $L$. Since we can approach $a$ from both sides (either right or left) on the real number line, for the overall limit to exist, 
+That is, the existence of a limit depends only on the behavior of the function near the point $a$, regardless of whether $f(a)$ is defined. In particular, the limit $\lim_{x\to a} f(x)$ exists if and only if any sequence of numbers $\{x_n\}$ approaching $a$ within some neighorhood of $a$
+produces a sequence of numbers $\{f(x_n)\}$ approaching the same value $L$. Since we can approach $a$ from both sides (either right or left) on the real number line, for the overall limit to exist, 
 the \textit{right-hand limit} $\lim_{x\to a^+} f(x)$ and \textit{left-hand limit} $\lim_{x\to a^-} f(x)$ must both exist and equal the same value $L$. 
 
 Here we look at some ``nontrivial'' examples (or counterexamples) of limits of functions. 
@@ -147,10 +149,23 @@ Here we look at some ``nontrivial'' examples (or counterexamples) of limits of f
         \\&= \lim_{x\to0^+}\frac{-\sin\theta}{-\theta} \\&= \lim_{x\to0^+}\frac{\sin\theta}{\theta} \\&= 1.
     \end{align*}
     Thus we have $\lim_{x\to0} \frac{\sin\theta}{\theta} = 1$.
-    
 \end{example}
 
+\subsection{The Squeeze Theorem} So far, we have seen examples of limits of non-polynomial or non-rational functions that require a more sophisticated definition of a limit. 
+We continue to examine limits of functions that cannot be computed directly through standard algebraic manipulation. 
+\begin{theorem}[Squeeze Theorem]
+    Let $f,g,h$ be real-valued functions defined on some open interval containing $a$, except possibly at $a$ itself. If $f(x) \leq g(x) \leq h(x)$ for all $x$ in the interval, and if $\lim_{x\to a} f(x) = \lim_{x\to a} h(x) = L$, then $\lim_{x\to a} g(x) = L$ as well.
+\end{theorem}
+Essentially, we are trapping the tricky function $g$ between two functions $f$ and $h$ whose limits are well-defined and have the same value. In that case, the limit of 
+the trapped function $g$ is forced to approach the same value as well.
 
+\begin{example}
+    Consider the limit $\lim_{x\to0} x^2 \sin\frac{1}{x}$. We can apply the squeeze theorem by noting that $-1 \leq \sin\frac{1}{x} \leq 1$ for all $x$, so we have
+\begin{align*}
+    -x^2 \leq x^2 \sin\frac{1}{x} \leq x^2.
+\end{align*}
+Since $\lim_{x\to0} -x^2 = \lim_{x\to0} x^2 = 0$, we conclude that $\lim_{x\to0} x^2 \sin\frac{1}{x} = 0$ as well.  
+\end{example}
 
 
 \end{document}
