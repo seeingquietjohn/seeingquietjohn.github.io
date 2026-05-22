@@ -89,7 +89,7 @@ produces a sequence of numbers $\{f(x_n)\}$ approaching the same value $L$. Sinc
 the \textit{right-hand limit} $\lim_{x\to a^+} f(x)$ and \textit{left-hand limit} $\lim_{x\to a^-} f(x)$ must both exist and equal the same value $L$. 
 
 Here we look at some ``nontrivial'' examples (or counterexamples) of limits of functions. 
-\begin{example}
+\begin{example}\label{example:sine}
     Let $f(x) = \sin \frac{1}{x}$. If we ever try to estimate the limit $\lim_{x\to0} f(x)$ by either graphing or calculating $f(x)$ for very small values of $x$, we quickly run into an issue; the functions seems to ``fluctuate'' across many different values as we take $x = 0.01, 0.00001, 0.0000001,$ and so on. 
     
     In fact, the function indeed oscillates \textit{infinitely often} on any open interval containing the point $0$. In particular, if we let 
@@ -97,7 +97,7 @@ Here we look at some ``nontrivial'' examples (or counterexamples) of limits of f
     then any open interval around $0$ contains the points $x_1$ and $x_2$ for sufficiently large $n$ and $m$, while $f(x_1) = 1$ and $f(x_2) = -1$, meaning that the function oscillates between these two values (which are indeed upper and lower bounds of $f$). 
 \end{example}
 
-\begin{example}
+\begin{example}\label{example:dirichlet}
     Let $f(x) = \begin{cases}
         1 & \text{if } x \in \Q,\\
         0 & \text{if } x \in \R\setminus\Q.
@@ -107,7 +107,7 @@ Here we look at some ``nontrivial'' examples (or counterexamples) of limits of f
     This function is also known as the \textit{Dirichlet function}. 
 \end{example}
 
-\begin{example}
+\begin{example}\label{example:thomae}
     Let $f(x) = \begin{cases}
         \frac{1}{q} & \text{if } x =\frac{p}{q} \text{ in lowest terms},\\
         0 & \text{if } x \in \R\setminus\Q.
@@ -122,7 +122,7 @@ Here we look at some ``nontrivial'' examples (or counterexamples) of limits of f
     Thus the function values $f(z_n)$ must approach $0$ as well, and we conclude that $\lim_{x\to a} f(x) = 0$ for any $a \in (0,1)$.
 \end{example}
 
-\begin{example}
+\begin{example}\label{example:sinc}
     Now let $f(x) = \frac{\sin\theta}{\theta}$ and consider the limit of $f(\theta)$ as $\theta$ approaches $0$. Geometrically, $\sin\theta$ is the length of the vertical segment of the unit vector at angle 
     $\theta$ from the positive $x$-axis. We see that the triangle formed by the origin, the point on the unit circle at angle $\theta$, and the unit vector $(1,0)$ has area $\frac{1}{2}\sin\theta$, while
     the sector of the unit circle at angle $\theta$ has area $\frac{1}{2}\theta$. Since the triangle is contained in the sector, we have 
@@ -159,14 +159,53 @@ We continue to examine limits of functions that cannot be computed directly thro
 Essentially, we are trapping the tricky function $g$ between two functions $f$ and $h$ whose limits are well-defined and have the same value. In that case, the limit of 
 the trapped function $g$ is forced to approach the same value as well.
 
-\begin{example}
-    Consider the limit $\lim_{x\to0} x^2 \sin\frac{1}{x}$. Notice that we cannot algebraically compute this limit since \[\lim_{x\to0}\sin\frac{1}{x}\] 
+\begin{example}\label{example:sinesqueeze}
+    Consider the limit $\lim_{x\to0} x \sin\frac{1}{x}$. Notice that we cannot algebraically compute this limit since \[\lim_{x\to0}\sin\frac{1}{x}\] 
     does not exist (example 1.2). We can apply the squeeze theorem by noting that $-1 \leq \sin\frac{1}{x} \leq 1$ for all $x$, so we have
 \begin{align*}
-    -x^2 \leq x^2 \sin\frac{1}{x} \leq x^2.
+    -x \leq x \sin\frac{1}{x} \leq x.
 \end{align*}
-Since $\lim_{x\to0} -x^2 = \lim_{x\to0} x^2 = 0$, we conclude that $\lim_{x\to0} x^2 \sin\frac{1}{x} = 0$ as well even though the limit of $\sin\frac{1}{x}$ does not exist.  
+Since $\lim_{x\to0} -x = \lim_{x\to0} x = 0$, we conclude that $\lim_{x\to0} x \sin\frac{1}{x} = 0$ as well even though the limit of $\sin\frac{1}{x}$ does not exist.  
 \end{example}
 
+\section{Continuity}
+\subsection{Examples of Continuous Functions}
+We now begin the discussion of \textit{continuous} functions. Throughout the course, the analysis of functions that are continuous on their domains will be the main theme. 
+\begin{definition}
+    A real-valued function $f$ is called \textit{continuous} at point $a$ if $\lim_{x\to a} f(x) = f(a)$.
+\end{definition}
+From this pointwise definition of continuity the following definitions of continuity on an interval follow immediately. 
+\begin{remark}
+    $f$ is continuous on an open interval $(a,b)$ if $f$ is continuous at every point in $(a,b)$. A special case of this is when $f$ is continuous on $\R$, in which case 
+    $f$ is continuous on $(-\infty, \infty)$. 
+\end{remark}
+\begin{remark}
+    On a closed interval $[a,b]$, we have to be slightly more careful since the endpoints $a$ and $b$ do not have neighborhoods that are entirely contained in $[a,b]$. 
+    Thus we say that $f$ is continuous on $[a,b]$ if $f$ is continuous at every point in $(a,b)$, and if $\lim_{x\to a^+} f(x) = f(a)$ and $\lim_{x\to b^-} f(x) = f(b)$.
+\end{remark}
+    Now we describe some examples of continuous and discontinuous functions to help illustrate the definition of continuity.
+\begin{example}
+    As we saw in example \ref{example:sinesqueeze}, the function $f(x) = x \sin\frac{1}{x}$ is undefined at $x = 0$. In fact, $f$ is continuous everywhere else. If we define a new function $g(x)$ by
+\begin{align*}
+    g(x) = \begin{cases}
+    x \sin\frac{1}{x} & \text{if } x \neq 0,\\
+    0 & \text{if } x = 0,
+\end{cases}
+\end{align*}
+then $g$ is continuous at $0$ since $\lim_{x\to0} g(x) = \lim_{x\to0} x \sin\frac{1}{x} = 0 = g(0)$.
+\end{example}
+In such a case where we can define a new function $g$ by assigning a value to $f$ at the point of discontinuity, we say that $f$ has a \textit{removable discontinuity} at that point.
+More formally, we say that $f$ has a removable discontinuity at $a$ if the limit $\lim_{x\to a} f(x)$ exists but does not equal $f(a)$ (or $f(a)$ is undefined).
+\begin{example}
+    On the other hand, for $f(x) = \sin\frac{1}{x}$, there is no value $a$ such that the new function 
+\begin{align*}
+    g(x) = \begin{cases}
+    \sin\frac{1}{x} & \text{if } x \neq 0,\\
+    a & \text{if } x = 0,
+\end{cases}
+\end{align*}
+is continuous since the limit $\lim_{x\to0} \sin\frac{1}{x}$ does not exist (example \ref{example:sine}).
+\end{example}
+We say that $f$ has a \textit{jump discontinuity} at $a$ if the left-hand and right-hand limits $\lim_{x\to a^-} f(x)$ and $\lim_{x\to a^+} f(x)$ both exist but are not equal to each other.
 
 \end{document}
