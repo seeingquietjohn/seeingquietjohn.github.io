@@ -16,7 +16,7 @@
         
         \[ \{f(x), f(f(x)), f(f(f(x))), \dots \} \] 
         
-        for input values \( x \). 
+        for input values \( x \). We will denote by \(f^k\) the \(k\)-fold iterate of \(f\). 
     </p>
     <p>
         Complex dynamics is a mathematical formalization of such phenomena. It is the study of the iterates of analytic maps \( f \) on a complex manifold. 
@@ -32,18 +32,25 @@
         on the unit circle and any limit of iterates of \(f\) has a jump discontinuity as we "cross" the unit circle. 
     </1>
     <p>
-        Intuitively, we can describe the dynamics of \( f \) on the open disk \( \mathbb{D} \) and its complement \( \widehat{\mathbb{C}}\setminus\overline{\mathbb{D}} \) as 
+        Intuitively, we can describe the dynamics of \( f \) on the open disk \( \mathbb{D} \) and its exterior \( \widehat{\mathbb{C}}\setminus\overline{\mathbb{D}} \) as 
         "tame", while the dynamics on the unit circle \( \partial \mathbb{D} \) is "chaotic", or equivalently, displays <i>sensitive dependence on initial conditions</i>. 
         In general, for a nonconstant holomorphic function \(f\), we can partition the Riemann sphere into two disjoint sets based on the
-        dynamical behavior of \(z\in\widehat{\mathbb{C}}\) under iteration of \(f\). Namely, the <i>Fatou set</i> of \(f\)
-        is the set of points \(z\) whose dynamics is tame, and its complement <i>Julia set</i> is the collection of points whose dynamics is chaotic. 
+        dynamical behavior of \(z\in\widehat{\mathbb{C}}\) under iteration of \(f\). Namely, the <i>Fatou set</i> \(F(f)\) of \(f\)
+        is the set of points \(z\) whose dynamics is tame, and the <i>Julia set</i> \(J(f)\) is the collection of points whose dynamics is chaotic. 
 
     </p>
     <p>
         More formally, let \(U\) be an open subset of 
         \(\widehat{\mathbb{C}}\) and let \(\mathcal{F} = \{f_i\}\) be a family of functions \(f_i:U\to\widehat{\mathbb{C}}\). We say that 
         \(\mathcal{F}\) is <i>normal</i> if any infinite sequence of functions in \(\mathcal{F}\) contains a subsequence of functions that converges
-        locally uniformly to some function \(g:U\to\widehat{\mathbb{C}}\). 
+        locally uniformly to some function \(g:U\to\widehat{\mathbb{C}}\). Then the Fatou set is the domain of normality for the family of iterates 
+        \(\{f^k\}\).
+    </p>
+    <p>
+        Thus, a point \(z \in \widehat{\mathbb{C}}\) belongs to the Fatou set if there exists an open neighborhood \(U\) of \(z\)
+        such that \(f^k |_U\) forms a normal family. Otherwise, \(z\) belongs to the Julia set and the neighborhood \(U\) is a domain of 
+        sensitive dependence on initial conditions, that is, a small perturbation of the initial point \(z\) leads to a drastically 
+        different long-term behavior. (See topological entropy.)
     </p>
 </div>
 </body>
