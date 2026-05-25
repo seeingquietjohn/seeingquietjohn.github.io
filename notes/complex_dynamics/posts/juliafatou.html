@@ -32,17 +32,16 @@
         on the unit circle and any limit of iterates of \(s\) has a jump discontinuity as we "cross" the unit circle. 
     </1>
     <p>
-        Intuitively, we can describe the dynamics of \( s \) on the open disk \( \mathbb{D} \) and its exterior \( \widehat{\mathbb{C}}\setminus\overline{\mathbb{D}} \) as 
-        "tame", while the dynamics on the unit circle \( \partial \mathbb{D} \) is "chaotic", or equivalently, displays <i>sensitive dependence on initial conditions</i>. 
-        In general, for a nonconstant holomorphic function \(f\), we can partition the Riemann sphere into two disjoint sets based on the
-        dynamical behavior of \(z\in\widehat{\mathbb{C}}\) under iteration of \(f\).
+        We can thus split the Riemann sphere into two disjoint dynamically distinct regions  \( \{z : |z| \neq 1\}\) where the dynamics of 
+        \(s\) is "tame", and \(\{z : |z| = 1\}\) on which the behavior of the iterates is "chaotic", or equivalently, displays 
+        <i>sensitive dependence on initial conditions</i>. Such a dichotomy of the Riemann sphere is generalized as the following. 
     </p>
     <p>
-        More formally, let \(U\) be an open subset of 
-        \(\widehat{\mathbb{C}}\) and let \(\mathcal{F} = \{f_i\}\) be a family of functions \(f_i:U\to\widehat{\mathbb{C}}\). We say that 
+        Let \(U\) be an open subset of 
+        \(\widehat{\mathbb{C}}\) and \(\mathcal{F} = \{f_i\}\) be a family of functions \(f_i:U\to\widehat{\mathbb{C}}\). Then the family
         \(\mathcal{F}\) is <i>normal</i> if any infinite sequence of functions in \(\mathcal{F}\) contains a subsequence of functions that converges
-        locally uniformly to some function \(g:U\to\widehat{\mathbb{C}}\). Then the Fatou set is the domain of normality for the family of iterates 
-        \(\{f^k\}\), and the Julia set is its complement on \(\widehat{\mathbb{C}}\).
+        locally uniformly to some function \(g:U\to\widehat{\mathbb{C}}\). The domain of normality for the family of iterates 
+        \(\{f^k\}\) is called the Fatou set \(F(f)\), and its complement the Julia set \(J(f) = \widehat{\mathbb{C}} \setminus F(f)\).
     </p>
     <p>
         Thus, a point \(z \in \widehat{\mathbb{C}}\) belongs to the Fatou set if there exists an open neighborhood \(U\) of \(z\)
