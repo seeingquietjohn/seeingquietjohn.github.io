@@ -26,11 +26,13 @@
     <h4>Dynamical Decomposition of the Riemann Sphere</h4>
     <p>
         As a simple example, consider \( s(z) = z^2 \) on the Riemann sphere \( \widehat{\mathbb{C}} \). We see that the forward iterates of 
-        \( s \) inside the open disk \( \mathbb{D} = \{ z : |z| < 1 \} \) converge locally uniformly to zero. Similarly, any iterate
-        of \( s \) converges locally uniformly to the constant map \(z \mapsto \infty\) on 
+        \( s \) inside the open disk \( \mathbb{D} = \{ z : |z| < 1 \} \) converge 
+        <a href="https://proofwiki.org/wiki/Definition:Locally_Uniform_Convergence" target="_blank" rel="noopener noreferrer">locally uniformly</a> to zero. 
+        Similarly, any iterate of \( s \) converges locally uniformly to the constant map \(z \mapsto \infty\) on 
         \(\widehat{\mathbb{C}}\setminus\overline{\mathbb{D}} = \{ z : |z| > 1 \}\). 
         On the other hand, any forward orbit of \(s\) on the unit circle \( \partial \mathbb{D} = \{ z : |z| = 1 \} \) is "stuck"
-        on the unit circle and any limit of iterates of \(s\) has a jump discontinuity as we "cross" the unit circle. 
+        on the unit circle and any limit of iterates of \(s\) has a jump discontinuity as we "cross" the unit circle. (Compare the discussion 
+        of the angle doubling map in <a href="simplechaos.html">Simple Examples of Chaos and Smooth Julia Sets</a>.)
     </1>
     <p>
         We can thus split the Riemann sphere into two disjoint dynamically distinct regions  \( \{z : |z| \neq 1\}\) where the dynamics of 
@@ -46,14 +48,15 @@
     </p>
     <p>
         Thus, a point \(z \in \widehat{\mathbb{C}}\) belongs to the Fatou set if there exists an open neighborhood \(U\) of \(z\)
-        such that the collection \(\{f^k |_U\}\) forms a normal family. Otherwise, a small perturbation of the initial point \(z\) on any of its neighborhood \(U\) leads to a drastically 
-        different long-term behavior and \(z\) belongs to the Julia set. (See topological entropy.)
+        such that the collection \(\{f^k |_U\}\) forms a such that the collection \(\{f^k |_U\}\) forms 
+        a normal family. Otherwise, a small perturbation of the initial point \(z\) on any of its neighborhood \(U\) leads to a drastically 
+        different long-term behavior and \(z\) belongs to the Julia set. (See <a href="entdim.html">Entropy and Dimension</a>.)
     </p>
     <p>
         Briefly going back to our example \(s(z) = z^2\), it follows that the Julia set \(J(s)\) is precisely the unit circle \(\{\ z : |z| = 1 \}\).
         In fact, it is not too difficult to see that the Julia set of the <i>power map</i> \(p_d(z) = z^d\) is the unit circle for any integer 
         \(d \geq 2\). As we will see later, it turns out that such smooth Julia sets are quite rare and most Julia sets exhibit complex fractal structures. 
-        (See Simple Examples of Chaos and Smooth Julia Sets.)
+        (See <a href="simplechaos.html">Simple Examples of Chaos and Smooth Julia Sets</a>.)
     </p>
     <h4>Basic Properties of the Julia Set</h4>
     We now discuss some of the basic properties of the Julia set for a nonconstant holomorphic map on the Riemann sphere.
