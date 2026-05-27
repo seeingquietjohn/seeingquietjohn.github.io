@@ -73,11 +73,11 @@
 \author[sdf]{S. Peter Jeong}
 
 \begin{document}
-\maketitle
+
 \begin{abstract}
     A brief introductory exposition on limits, continuity, and related theorems.
 \end{abstract}
-
+\maketitle
 \section{Limit of a Function}
 
 \subsection{Examples of Limits} We begin with an intuitive definition of limits of real-valued functions. 
@@ -207,5 +207,36 @@ More formally, we say that $f$ has a removable discontinuity at $a$ if the limit
 is continuous since the limit $\lim_{x\to0} \sin\frac{1}{x}$ does not exist (example \ref{example:sine}).
 \end{example}
 We say that $f$ has a \textit{jump discontinuity} at $a$ if the left-hand and right-hand limits $\lim_{x\to a^-} f(x)$ and $\lim_{x\to a^+} f(x)$ both exist but are not equal to each other.
+
+\subsection{The Intermediate Value Theorem} 
+\begin{theorem}
+    If $f$ is ontinuous on [a, b] and $f(a) < c < f(b)$, then there exists $x \in [a,b]$ such that $f(x) = c$. 
+\end{theorem}
+The intermediate value theorem states that a continuous function on a closed, bounded interval takes all values between the two values on the boundary. We
+give a few examples to illustrate the theorem. 
+\begin{example}
+    Let $f(x) = x^3$. Then $f$ has a root in the closed interval $[-1, 1]$ since $f$ is continuous on $[-1,1]$ and $f(-1)=-1$ while $f(1)=1$. 
+\end{example}
+\begin{example}\label{example:fixedpoint}
+    Let $f: [a, b] \to [a, b]$ continuous. We will show that $f$ has a \textit{fixed point}, i.e., there exists $c \in [a,b]$ such that $f(c) = c$. Let $g(x) = f(x)-x$.
+    We want to show that $g(c) = 0$ for some $a \leq c \leq b$. Since $f$ maps the interval $[a,b]$ back to itself, $a \leq f(x) \leq b$ for any $x \in [a,b]$. Thus $0 \leq g(a)$ and $0 \geq g(b)$. If either $g(a)$ or $g(b)$ is zero
+    we are done. Otherwise, $g(a) > 0$ and $g(b) < 0$ so by the intermediate value theorem it immediately follows that $f$ has a fixed point. 
+\end{example}
+\begin{example}\label{example:oddpoly}
+    Let 
+    \[f(x) = a_dx^d + a_{d-1}x^{d-1} + \dots + a_1x + a_0\]
+    be an odd degree polynomial (the degree $d$ is odd). We will show that $f$ always has at least one root in $\R$. First notice that 
+    \begin{align*}
+        \lim_{x\to\infty}f(x) = \infty, \quad \lim_{x\to-\infty}f(x) = -\infty.
+    \end{align*}
+    Thus for any $y\in\R$, there exists $R$ such that 
+    \begin{align*}
+        x > R \implies f(x) > y, \quad x < R \implies f(x) < y. 
+    \end{align*}
+    By the intermediate value theorem it follows that there is some $x_0 \in [-R, R]$ such that $f(x_0) = y$ for any $y\in\R$.
+\end{example}
+\begin{example}
+    Any even degree polynomial attains either a minimum or maximum on $\R$. Proof is left as an exercise for the reader. 
+\end{example}
 
 \end{document}
