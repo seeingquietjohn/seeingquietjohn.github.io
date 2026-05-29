@@ -62,11 +62,28 @@
 
     <h3>The Filled Julia Set</h3>
     <p>
-        This escape phenomena gives rise to another interesting dichotomy of the Riemann sphere \(\widehat{\mathbb{C}}\) for complex polynomials:
+        The escape phenomena gives rise to another interesting dichotomy of the Riemann sphere \(\widehat{\mathbb{C}}\) for complex polynomials:
         the <i>filled Julia set</i> \[K_f = \{z \in \widehat{\mathbb{C}} : \text{$f^n(z)$ is bounded}\}\] 
         and its complement <i>attracting basin of infinity</i> 
         \[A_f(\infty) = \{z \in \widehat{\mathbb{C}} : \lim_{n\to\infty}f^n(z) = \infty\}.\] 
 
+        The filled Julia set is extremely useful when studying polynomial dynamics, since it is a compact, invariant set whose boundary 
+        \(\partial K_f\) is precisely the Julia set \(J_f\).
+    </p>
+    <p>
+        <b>Invariance of \(K_f\).</b> The filled Julia set \(K_f\) of a complex polynomial \(f\) is completely invariant. That is, 
+        \[f^{-1}(K_f) = K_f = f(K_f).\]
+        <i>Proof.</i> This follows immediately from the fact that 
+        \[f^{-1}(z) \in K_f \iff z \in K_f \iff f(z) \in K_f.\]
+    </p>
+    <p>
+        <b>Compactness of \(K_f\).</b> With \(f\) as above, \(K_f\) is a compact subset of \(\mathbb{C}\). <br>
+        <i>Proof.</i> We indeed want to show that \(K_f\) is closed and bounded. Since \(f\) has an escape radius \(R\), 
+        \[K_f \subset \{z : |z| \leq R\}\]
+        so \(K_f\) is bounded. Moreover, by the invariance property, it follows that 
+        \[K_f = \bigcap_{n=1}^\infty f^{-n}(\bar{\mathbb{D}}(0, R)).\]
+        Arbitrary intersection of closed sets is closed, so \(K_f\) is closed.
+    </p>
     </p>
     <h3>Bottcher's Theorem and the Topology of Polynomial Julia Sets</h3>
     <p>
