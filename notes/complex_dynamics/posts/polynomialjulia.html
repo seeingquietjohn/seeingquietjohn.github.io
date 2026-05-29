@@ -7,42 +7,70 @@
 </head>
 <body>
 <div style="max-width: 600px; margin: 0 auto;">
-    <h3>Polynomial Dynamics: the Filled Julia Set</h3>
+    <h2>Polynomial Dynamics: the Filled Julia Set</h2>
 
     <p><a href="../complex_dynamics.html">&larr; Back to Complex Dynamics</a></p>
 
     <hr> 
 
-    <h4>Introduction</h4>
+    <h3>Introduction</h3>
     <p>
         We will present basic properties of polynomial dynamics on \(\widehat{\mathbb{C}}\). In particular, we will discuss how the analytical 
         properties of polynomial dynamics are reflected on the topological properties of the Julia set. Along the way, we introduce tools 
         necessary to analyze such properties, including the <i>filled Julia set</i> and the <i>Bottcher map/coordinate</i>. Follow-up 
         discussions of the <i>dynamical parameter plane</i> of real and complex polynomials will be presented in ...
     </p>
-    <h4>Properties of Polynomial Dynamics</h4>
+    <h3>Properties of Polynomial Dynamics</h3>
     <p>
-        We begin with a few relevant dynamical properties of a polynomial. 
+        We begin with a few relevant dynamical properties of a polynomial. Throughout the section, we let
+        \(f(z) = a_dz^d + a_{d-1}z^{d-1} + \dots + a_1z + a_0\) be a complex polynomial of degree \(d\geq 2\). 
     </p>
     <p>
         <b>Existence of Escape Radius.</b> We see that the forward orbits of a polynomial always escape to \(\infty\) given a sufficiently large \(z\). That is, 
-        there exists some \(R > 0\) such that \(|f(z)| > \lambda |z|\) for any \(z\) with \(|z| > R \). 
+        with \(f\) as above, there exists some \(R > 0\) such that \(|f(z)| > \lambda |z|\) for some \(\lambda > 1\) for any \(z\) with \(|z| > R \). 
         <br>
-        <i>Proof.</i> If \(f(z) = a_dz^d + a_{d-1}z^{d-1} + \dots + a_1z + a_0\) is a polynomial, then
-        \[\lim_{z\to\infty}\frac{|f(z)|}{|z|} &= |z|^{d-1}(|a_d + a_{d-1}z^{-1}+\dots+a_0z^{1-d}|) // &= \infty.\]
+        <i>Proof.</i> We have
+        \[\lim_{z\to\infty}\frac{|f(z)|}{|z|} = \lim_{z\to\infty} |z|^{d-1}(|a_d + a_{d-1}z^{-1}+\dots+a_0z^{1-d}|) = \infty.\]
+    </p>
+    <p>
+        What happens dynamically when \(f(z)\) escapes? 
+    </p>
+    <p>
+        <b>Escape Criterion.</b> With \(f\) and \(R\) as above, if \(|z| > R\), then \(|f^n(z)| \to \infty\) as \(n\to\infty\). 
+        <br>
+        <i>Proof.</i> The lower bound on \(|f(z)|\) implies
+        $$
+        \begin{aligned}
+        |f^n(z)| &> \lambda |f^{n-1}(z)| \\
+        &> \lambda^n |z|.
+        \end{aligned}    
+        $$
+        Since we assume \(\lambda > 1\), it follows that \(|f^n(z)| \to \infty\) as \(n \to \infty\).
+    </p>
+    <p>
+        <b>Escape Radius.</b> We can indeed compute the escape radius explicitly. Let \( R = \sup\{1, \frac{2+A}{|a_d|}\}\) where 
+        \(A = \sum_{i=0}^{d-1}a_i\). Then for any \(|z| > R\), we have 
+        $$
+        \begin{aligned}
+        |f(z)| &\geq |a_d||z|^d - (|a_{d-1}||z|^{d-1} + \dots + |a_1||z| + |a_0|) \\
+        &\geq |a_d||z|^d - A|z|^{d-1} \\ 
+        &\geq |z|^{d-1}(|a_d||z| - A) \\
+        &\geq 2|z|.
+        \end{aligned}
+        $$
     </p>
 
+    <h3>The Filled Julia Set</h3>
     <p>
-        <b>Escape Criterion</b>
-    </p>
+        This escape phenomena gives rise to another interesting dichotomy of the Riemann sphere \(\widehat{\mathbb{C}}\) for complex polynomials:
+        the <i>filled Julia set</i> \[K_f = \{z \in \widehat{\mathbb{C}} : \text{$f^n(z)$ is bounded}\}\] 
+        and its complement <i>attracting basin of infinity</i> 
+        \[A_f(\infty) = \{z \in \widehat{\mathbb{C}} : \lim_{n\to\infty}f^n(z) = \infty\}.\] 
 
-    <p>
-        <b>Escape Radius</b>
     </p>
-
-    <h4>Bottcher's Theorem and the Topology of Polynomial Julia Set</h4>
+    <h3>Bottcher's Theorem and the Topology of Polynomial Julia Sets</h3>
     <p>
-        <b>Superattracting Fixed Point</b>
+        <b>Superattracting Fixed Point</b> 
     </p>
     <p>
         <b>Bottcher's Theorem</b>
