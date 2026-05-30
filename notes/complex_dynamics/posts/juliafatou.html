@@ -59,7 +59,19 @@
         (See <a href="simplechaos.html">Simple Examples of Chaos and Smooth Julia Sets</a>.)
     </p>
     <h3>Basic Properties of the Julia Set</h3>
-    We now discuss some of the basic properties of the Julia set for a nonconstant holomorphic map on the Riemann sphere.
+    We now discuss some of the basic properties of the Julia set for a nonconstant holomorphic map on the Riemann sphere. In this section we assume
+    \(f:\widehat{\mathbb{C}}\to\widehat{\mathbb{C}}\) is a nonconstant analytic map. 
+    <p>
+        <b>Invariance Lemma.</b> The Julia set \(J_f\) is totally invariant. That is, 
+        \[f^{-1}(J_f) = J_f = f(J_f).\]
+        Equivalently, the Fatou set \(F_f\) is totally invariant. <br>
+        <i>Proof.</i> It suffices to show that \(F_f\) is totally invariant. <b>Backward invarance.</b>
+        If \(z_0 \in F_f\) there exists a neighborhood \(U\) of \(z_0\) on which the set of iterates \(\{f^n\}\) is a normal family. 
+        Since \(f\) is analytic, \(V = f^{-1}(U)\) is an open set. We wish to show that \(\{f^n\}\) is normal on \(V\) as well. 
+        Since \(\{f^{n-1}\}\) is a normal on \(U\), \(\{f^{n-1}|_U \circ f|_V\}\) is also normal on \(V\) by the definition of locally 
+        uniform convergnece. Thus \(f^{-1}(F_f) \subset F_f\). <b>Forward invariance.</b> Again let \(z_0 \in F_f\). Then by the open mapping theorem \(W = f(U)\)
+        is open. It follows that \(\{f^{n+1}}\) is normal on \(W\).
+    </p>
 </div>
 </body>
 </html>
