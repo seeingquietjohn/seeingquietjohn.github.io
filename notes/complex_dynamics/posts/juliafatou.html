@@ -42,7 +42,7 @@
     <p>
         Let \(U\) be an open subset of 
         \(\widehat{\mathbb{C}}\) and \(\mathcal{F} = \{f_i\}\) be a family of functions \(f_i:U\to\widehat{\mathbb{C}}\). Then the family
-        \(\mathcal{F}\) is <i>normal</i> if any infinite sequence of functions in \(\mathcal{F}\) contains a subsequence of functions that converges
+        \(\mathcal{F}\) is <i>normal</i> on \(U\) if any infinite sequence of functions in \(\mathcal{F}\) contains a subsequence of functions that converges
         locally uniformly to some function \(g:U\to\widehat{\mathbb{C}}\). The domain of normality for the family of iterates 
         \(\{f^k\}\) is called the Fatou set \(F_f\), and its complement the Julia set \(J_f = \widehat{\mathbb{C}} \setminus F_f\).
     </p>
@@ -65,12 +65,10 @@
         <b>Invariance Lemma.</b> The Julia set \(J_f\) is totally invariant. That is, 
         \[f^{-1}(J_f) = J_f = f(J_f).\]
         Equivalently, the Fatou set \(F_f\) is totally invariant. <br>
-        <i>Proof.</i> It suffices to show that \(F_f\) is totally invariant. <b>Backward invarance.</b>
-        If \(z_0 \in F_f\) there exists a neighborhood \(U\) of \(z_0\) on which the set of iterates \(\{f^n\}\) is a normal family. 
-        Since \(f\) is analytic, \(V = f^{-1}(U)\) is an open set. We wish to show that \(\{f^n\}\) is normal on \(V\) as well. 
-        Since \(\{f^{n-1}\}\) is a normal on \(U\), \(\{f^{n-1}|_U \circ f|_V\}\) is also normal on \(V\) by the definition of locally 
-        uniform convergnece. Thus \(f^{-1}(F_f) \subset F_f\). <b>Forward invariance.</b> Again let \(z_0 \in F_f\). Then by the open mapping theorem \(W = f(U)\)
-        is open. 
+    </p>
+        If follows that \(J(f)\) is self-similar. (add)
+    <p>
+        <b>Iteration Lemma.</b> For any \(k > 0\), \(J(f^k) = J(f)\). 
     </p>
 </div>
 </body>
