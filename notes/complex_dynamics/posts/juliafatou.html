@@ -90,10 +90,31 @@
     <p>
         <b>Attracing Basins and Repelling Points.</b> Every attracting basin \(\mathcal{A}\) of a holomorphic map \(f:\widehat{\mathbb{C}}\to\widehat{\mathbb{C}}\)
         is contained in the Fatou set \(F_f\). On the other hand, every repelling periodic orbit is contained in the Julia set \(J_f\). <br>
-        <i>Proof.</i> Since a periodic point \(z = f^n(z)\) is a fixed point of \(f^n\), by the iteration lemma above, it suffices to prove the statement 
+        <i>Proof.</i> Since a periodic point \(z = f^n(z)\) is a fixed point of \(f^n\), by the iteration and invariance lemmas above, it suffices to prove the statement 
         for fixed points. Let \(z_0 = f(z_0)\) be a fixed point of \(f\) with multiplier \(\lambda = f'(z_0)\). If \(\lambda > 1\), then no sequence can converge 
-        uniformly around \(z_0\) by the Weierstrass uniform convergence theorem. On the other hand, suppose \(|\lambda| < 1\). We can indeed work with a 
-        local chart with \(z_0 = 0\). 
+        uniformly around \(z_0\) by the Weierstrass uniform convergence theorem. By the lemmas above, it follows that any repelling periodic orbit must be contained
+        in the Julia set. <br>
+        
+        On the other hand, suppose \(|\lambda| < 1\). We can assume \(z_0 = 0\), so by Taylor's theorem we have 
+        $$
+        \begin{aligned}
+        f(z) &= f(z_0) + f'(z_0)(z-z_0) + O(z^2) \\
+        &= \lambda z + O(z^2) \\
+        \end{aligned}
+        $$
+        for any \(z\) near \(z_0 = 0\). Therefore, there exists some constant \(0 < M \) such that 
+        \[|f(z)| \leq |\lambda||z| + M|z|^2 \leq |z|(|\lambda| + M|z|).\]
+        Now choose some \(c\) with \(|\lambda| < c < 1\). Since \(|\lambda| + M|z| \to \lambda\) as \(z \to 0\), we have 
+        \[|f(z)| \leq c|z|\]
+        for \(z\) sufficiently close to \(z_0 = 0\). Thus 
+        \[|f^n(z)| \leq c^n|z|\]
+        by induction and
+        it follows that the iterates of \(f\) converge uniformly on some neighborhood of \(z_0 = 0\)
+        to the constant map \(z \mapsto z_0\). 
+    </p>
+
+    <p>
+        <b>Parabolic Fixed Points.</b>
     </p>
 </div>
 </body>
