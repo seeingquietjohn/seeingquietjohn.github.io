@@ -15,7 +15,19 @@
 
     <h3>Introduction</h3>
     <p>
-        Still reading. 
+        Still reading. <br>
+        Questions/tasks: <br>
+        1. define \(\phi: \Theta \to \mathcal{F}\) where \(\Theta\) denotes the parameter space and \(\mathcal{F}\) is the 
+        space of realizable functions \(F: \mathbb{R}^n \to \mathbb{R}^m\) given the input-output data.<br> 
+        1-1. visualize/compute the moduli space of \(\Theta\) up to \(\phi\).<br>
+        warning: 1-2 might be a bit schizo. 
+        1-2. opreator theoretic viewpoint of training dynamics? there is a semiconjugacy between \(\theta \in \Theta\) and \(f \in \mathcal{F}\) by
+        \[\phi(\theta) = f.\]
+        As the weight updates according to \(\theta_{k+1} = \theta_k - \gamma \frac{\partial L}{\partial \theta_k}\), \(f_{k} = \phi(\theta_{k})\)
+        evolves according to 
+        \[f_{k+1} = \mathcal{L}f_{k} = \mathcal{L}\]
+        so this is precisely koopman operator theory stuff. Gotta work with the "moduli space" of parameters \(\Theta\G\) no? 
+
     </p>
     <h3>Problem Setup</h3>
     <p>
@@ -28,7 +40,7 @@
         &= \sum_x q(x)\log\frac{q(x)}{p(x|\theta)}
         \end{align}
         $$
-        is minimized (hopefully, vanishes).
+        is minimized. If \(K(\theta)\) vanishes for some paramter \(\theta\), we
     </p>
     <p>
         For regular models \(p(x|\theta)\), such as linear regression, 
