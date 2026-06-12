@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Singular Learning Theory</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<div style="max-width: 600px; margin: 0 auto;">
+    <h2>Singular Learning Theory</h2>
+
+    <p><a href="../ml.html">&larr; Back</a></p>
+
+    <hr> 
+
+    <h3>Introduction</h3>
+    <p>
+        Still reading. 
+    </p>
+    <h3>Problem Setup</h3>
+    <p>
+        As usual, given some finite data \(D_n = \{x_1, x_2, \dots, x_n\}\) sampled approriately (i.i.d) from some unknown distribution \(q(x)\), we hope to find some 
+        parametrized model \(p(x | \theta)\) that approximates the true distribution \(q(x)\). In other words, our goal is to find some parameter 
+        \(\theta \in \Theta\) such that the KL divergence 
+        $$
+        \begin{align}
+        KL(q(x) || p(x | \theta)) &= K(\theta) \\
+        &= \sum_x q(x)\log\frac{q(x)}{p(x|\theta)}
+        \end{align}
+        $$
+        is minimized (hopefully, vanishes).
+    </p>
+    <p>
+        For regular models \(p(x|\theta)\), such as linear regression, 
+        the KL divergence\(K(\theta)\) vanishes at some unique point \(\theta_0\) and thus the <i>true parameter set</i>
+        \[\Theta_0 = \{\theta \in \Theta : K(\theta) = 0\}\]
+        is precisely the point \(\theta_0\).
+    </p>
+</div>
+</body>
+</html>
