@@ -9,13 +9,34 @@
 <div style="max-width: 600px; margin: 0 auto;">
     <h2>Examples of Bifurcations</h2>
 
-    <p><a href="../chaos_theory.html">&larr; Back</a></p>
+    <!-- <p><a href="../chaos_theory.html">&larr; Back</a></p> -->
 
     <hr> 
 
     <h3>Introduction</h3>
     <p>
-        We provide examples and classification of bifurcations in the study of differentiable dynamical systems. 
+        We provide examples and classification of bifurcations in differentiable dynamics on differentiable manifolds. 
+    </p>
+
+    <h3>Differentiable Dynamical Systems</h3>
+    <p>
+        The time evolution of natural systems is usually given by a differential equation of the form 
+        \[\frac{dx}{dt} = X(x)\]
+        where \(x = x(t)\) defines a smooth curve on some manifold \(M\). Here \(M\) is called a <i>phase space</i> as it contains all possible 
+        states for \(x\). In general, we are interested in the time evolution of \(x(t)\)
+        as \(f: M \to TM\) defines a <i>flow</i> \(f: D \subset \mathbb{R} \times M \to M\) such that 
+        \[\frac{d}{dt}\phi(x, t) = X(f^t(x)).\]
+        Note that \(f(x, t) = f^t(x)\) satisfies the group properties \(f^{t+s} = f^t \circ f^s\) and \(f^0 = \text{id}_M\) since 
+        \(f^0(x) = x\). Then \(f^t\) on \(t \geq 0\) defines a <i>continuous</i> dynamical system; if \(t\) is restricted to integer values 
+        it becomes a <i>discrete</i> dynamical system. 
+    </p>
+    <p>
+        To <i>solve</i> a differential equation we are often given some <i>initial condition</i> 
+        \[x(0) = x_0 \in M\]
+        which defines a <i>solution curve</i> \(f^t(x_0)\) such that 
+        \[f(x_0, 0) = x_0.\]
+        The existence and uniqueness of such a solution is guaranteed by the Picard-Lindelof theorem. In the discussions below 
+        we shall see how the <i>parametrized family</i> of maps \(f_\mu\) behaves qualititavely as we vary \(\mu\).
     </p>
 
     <h3>Linear Systems</h3>
@@ -25,24 +46,25 @@
     </p>
 
     <p>
-        <b>Normal Reproduction.</b> Consider the equation 
+        <h4>Normal Growth and Decay</h4> 
+        Consider the equation 
         \[\frac{dx}{dt} = ax(t).\]
-        Then for real \(k\), the family of curves \(x(t) = ke^{at}\) is a general solution since 
+        Then for real \(k\), the solution to the equation is given by the family of curves \(x(t) = ke^{at}\) since 
         \[\frac{dx}{dt} = ake^{at} = ax(t).\]
-        Moreover, given an intial value condition \(x_0 = u_0\), the resulting solution 
+        If we fix an initial value \(x_0 = u_0\) we obtain a solution
         \[x(t) = u_0e^{at}\]
-        is unique (Picard-Lindelof). 
+        based at \(x_0 = u_0\), which is unique (Picard-Lindelof). 
     </p>
     <p>
-        motivate equilibrium
+        Notice that if \(u_0 = 0\), then \(x(t)\) ends up being "stuck" at \(0\) for all \(t\). In general, given some differential equation 
+        of the form \(\dot{x} = f(x, t)\), the points \(x'\) at which \(\dot{x}\) vanishes are called <i>equilibrium points</i> (or fixed points); 
+        if \(q\) is an equilibrium point then \(x(t) \equiv q\) is the constant solution. 
     </p>
     <p>
-        motivate source and sink
+        source, sink, bifurcation, stable and unstable fixed points. 
     </p>
 
     <h3>Planar Systems</h3>
-
-    <h3>Nonlinear Systems and Bifurcation Theory</h3>
 </div>
 </body>
 </html>
