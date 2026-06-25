@@ -13,14 +13,21 @@
 
     <h3>Introduction</h3>
     <p>
-        Definition and examples of simple chaotic systems characterized by <i>sensitive dependence on initial conditions</i> (per Devaney). 
+        Definition and examples of simple chaotic systems characterized by <i>sensitive dependence on initial conditions</i> (per Devaney)
+        for discrete dynamical systems. 
         (Compare <a href=""> Simple Chaos and Toplogical Conjugacy</a>.)
     </p>
     <h3>Definition of a Chaotic System</h3>
     <p>
-        <h4> Denseness </h4>
-        <h4> Transitivity </h4>
-        <h4> Sensitive Dependence on Initial Condition </h4>
+        Let \(X, d\) be a metric space and \(f\) a map from \(X\) to itself. We say that \(f\) is <i>chaotic</i> if it satisfies the following conditions. 
+    </p>
+    <p>
+        <b>Denseness of periodic points.</b> The set of periodic points of \(f\) is dense in \(X\). <br>
+        <b>Transitivity.</b> For any two open nonempty subsets \(U, V\) of \(X\), there exists some integer \(n > 0\) such that \(f^n(U) \cap V \neq \emptyset\).
+        <br>
+        <b>Sensitive Dependence on Initial Condition.</b> For any \(x\in X\) and \(\epsilon > 0\), there exists some \(\delta > 0\) and \(n > 0\) such that 
+        \(d(f^n(x), f^n(y)) > \delta\)
+        for some \(y \in X\) with \(d(x, y) < \epsilon\). 
     </p>
     <h3>Examples</h3>
     <h3>Remarks</h3>
